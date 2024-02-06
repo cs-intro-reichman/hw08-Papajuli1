@@ -92,8 +92,10 @@ class PlayList {
     public int indexOf(String title) {
         if (this.size > 0) {
             for (int i = 0; i < this.size; i++) {
-                if (this.getTrack(i).getTitle().toLowerCase() == title.toLowerCase())
-                    return i;
+                if (this.getTrack(i) != null) {
+                    if (this.getTrack(i).getTitle().toLowerCase() == title.toLowerCase())
+                        return i;
+                }
             }
         }
         return -1;
