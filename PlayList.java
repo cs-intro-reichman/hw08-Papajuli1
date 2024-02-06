@@ -16,12 +16,12 @@ class PlayList {
 
     /** Returns the maximum size of this play list. */
     public int getMaxSize() {
-        return this.maxSize;
+        return maxSize;
     }
 
     /** Returns the current number of tracks in this play list. */
     public int getSize() {
-        return this.size;
+        return size;
     }
 
     /** Method to get a track by index */
@@ -39,14 +39,11 @@ class PlayList {
      * Otherwise, appends the track and returns true.
      */
     public boolean add(Track track) {
-        if (this.getSize() == this.getMaxSize())
+        if (this.size == this.maxSize)
             return false;
-        else {
-            this.tracks[size + 1] = track;
-            this.size++;
-            return true;
-        }
-
+        this.tracks[size] = track;
+        this.size++;
+        return true;
     }
 
     /**
