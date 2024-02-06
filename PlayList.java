@@ -102,7 +102,7 @@ class PlayList {
      */
     public boolean add(int i, Track track) {
         if (i >= 0 && i <= this.size && this.size < this.maxSize) {
-            if (i == 0)
+            if (i == this.size)
                 this.add(track);
             else {
                 for (int j = this.getSize(); j > i; j--) {
@@ -209,10 +209,6 @@ class PlayList {
         for (int i = 0; i < this.size; i++) {
             int min = this.minIndex(i);
             if (min != i) {
-                // for (int k = i + 1; k < this.getSize(); k++) {
-                // if (this.tracks[k].isShorterThan(this.getTrack(min)))
-                // min = k;
-                // }
                 Track temp = tracks[i];
                 this.tracks[i] = this.tracks[min];
                 this.tracks[min] = temp;
