@@ -101,18 +101,19 @@ class PlayList {
      * returns true.
      */
     public boolean add(int i, Track track) {
-        if (i < 0 || i > this.getSize() || this.getSize() == this.getMaxSize())
-            return false;
-        if (i == 0)
-            this.add(track);
-        else {
-            for (int j = this.getSize(); j > i; j--) {
-                this.tracks[j] = this.tracks[j - 1];
+        if (i >= 0 && i <= this.size && this.size < this.maxSize) {
+            if (i == 0)
+                this.add(track);
+            else {
+                for (int j = this.getSize(); j > i; j--) {
+                    this.tracks[j] = this.tracks[j - 1];
+                }
+                this.tracks[i] = track;
+                this.size = size + 1;
             }
-            this.tracks[i] = track;
-            this.size = size + 1;
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
@@ -205,9 +206,9 @@ class PlayList {
     public void sortedInPlace() {
         // Uses the selection sort algorithm,
         // calling the minIndex method in each iteration.
-        for (int i = 0; i < this.getSize(); i++) {
-            int min = i;
-            if (this.minIndex(i) != i) {
+        for (int i = 0; i < this.size; i++) {
+            int min = this.minIndex(i);
+            if (min != i) {
                 // for (int k = i + 1; k < this.getSize(); k++) {
                 // if (this.tracks[k].isShorterThan(this.getTrack(min)))
                 // min = k;
