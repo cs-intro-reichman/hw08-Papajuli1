@@ -217,7 +217,7 @@ class PlayList {
         for (int i = 0; i < this.getSize(); i++) {
             int min = i;
             for (int k = i + 1; k < this.getSize(); k++) {
-                if (this.tracks[k].isShorterThan(this.tracks[i]))
+                if (this.tracks[k].isShorterThan(this.getTrack(min)))
                     min = k;
             }
             Track temp = tracks[i];
