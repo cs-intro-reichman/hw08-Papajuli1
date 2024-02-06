@@ -19,22 +19,22 @@ class Track {
      * For example, "John Lennon, Imagine, 3:07"
      */
     public String toString() {
-        return this.artist + ", " + this.title + ", " + this.formattedDuration(this.duration);
+        return artist + ", " + title + ", " + formattedDuration(duration);
     }
 
     /** Returns this track's title. */
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     /** Returns this track's artist. */
     public String getArtist() {
-        return this.artist;
+        return artist;
     }
 
     /** Returns this track's duration. */
     public int getDuration() {
-        return this.duration;
+        return duration;
     }
 
     /**
@@ -42,7 +42,7 @@ class Track {
      * returns true; otherwise returns false.
      */
     public boolean isShorterThan(Track other) {
-        return this.duration < other.duration;
+        return duration < other.duration;
     }
 
     // Returns a string that represents the totalSeconds as "minutes:seconds",
