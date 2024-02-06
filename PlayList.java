@@ -42,7 +42,7 @@ class PlayList {
         if (this.size == this.maxSize)
             return false;
         this.tracks[size] = track;
-        this.size++;
+        this.size = size + 1;
         return true;
     }
 
@@ -65,7 +65,7 @@ class PlayList {
     public void removeLast() {
         if (this.size > 0) {
             this.tracks[size - 1] = null;
-            this.size--;
+            this.size = size - 1;
         }
     }
 
