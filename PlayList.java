@@ -110,8 +110,8 @@ class PlayList {
                 this.tracks[j] = this.tracks[j - 1];
             }
             this.tracks[i] = track;
+            this.size = size + 1;
         }
-        this.size = size + 1;
         return true;
     }
 
@@ -129,8 +129,9 @@ class PlayList {
                 for (int j = i; j < this.getSize(); j++) {
                     this.tracks[j] = this.tracks[j + 1];
                 }
+                this.size = size - 1;
             }
-            this.size = size - 1;
+
         }
     }
 
