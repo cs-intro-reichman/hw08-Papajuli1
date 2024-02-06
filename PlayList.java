@@ -79,7 +79,7 @@ class PlayList {
         int total = 0;
         if (this.size > 0) {
             for (int i = 0; i < this.size; i++) {
-                total += this.tracks[i].getDuration();
+                total += this.getTrack(i).getDuration();
             }
         }
         return total;
@@ -92,7 +92,7 @@ class PlayList {
     public int indexOf(String title) {
         if (this.size > 0) {
             for (int i = 0; i < this.size; i++) {
-                if (this.tracks[i].getTitle().toLowerCase() == title.toLowerCase())
+                if (this.getTrack(i).getTitle().toLowerCase() == title.toLowerCase())
                     return i;
             }
         }
