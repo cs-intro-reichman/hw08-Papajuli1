@@ -111,7 +111,7 @@ class PlayList {
             }
             this.tracks[i] = track;
         }
-        this.size++;
+        this.size = size + 1;
         return true;
     }
 
@@ -130,8 +130,7 @@ class PlayList {
                     this.tracks[j] = this.tracks[j + 1];
                 }
             }
-            // this.tracks[size - 1] = new Track("", "", 0);
-            this.size--;
+            this.size = size - 1;
         }
     }
 
