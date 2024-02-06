@@ -77,11 +77,9 @@ class PlayList {
     /** Returns the total duration (in seconds) of all the tracks in this list. */
     public int totalDuration() {
         int total = 0;
-        if (this.size > 0) {
-            for (int i = 0; i < this.size; i++) {
-                if (this.getTrack(i) != null) {
-                    total += this.getTrack(i).getDuration();
-                }
+        for (int i = 0; i < this.size; i++) {
+            if (this.getTrack(i) != null) {
+                total += this.getTrack(i).getDuration();
             }
         }
         return total;
@@ -92,12 +90,10 @@ class PlayList {
      * If such a track is not found, returns -1.
      */
     public int indexOf(String title) {
-        if (this.size > 0) {
-            for (int i = 0; i < this.size; i++) {
-                if (this.getTrack(i) != null) {
-                    if (this.getTrack(i).getTitle().toLowerCase() == title.toLowerCase())
-                        return i;
-                }
+        for (int i = 0; i < this.size; i++) {
+            if (this.getTrack(i) != null) {
+                if (this.getTrack(i).getTitle().toLowerCase() == title.toLowerCase())
+                    return i;
             }
         }
         return -1;
