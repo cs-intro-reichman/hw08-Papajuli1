@@ -39,10 +39,15 @@ class PlayList {
      * Otherwise, appends the track and returns true.
      */
     public boolean add(Track track) {
-        if (size == maxSize)
+        // if (size == maxSize)
+        // return false;
+        // tracks[size] = track;
+        // size++;
+        // return true;
+        if (this.size == this.maxSize)
             return false;
-        tracks[size] = track;
-        size++;
+        this.tracks[size] = track;
+        this.size = size + 1;
         return true;
     }
 
