@@ -199,10 +199,10 @@ class PlayList {
      * Removes the first track from this list. If the list is empty, does nothing.
      */
     public void removeFirst() {
-        if (size > 0)
-            remove(0);
-        // if (this.getSize() > 0)
-        // this.remove(0);
+        // if (size > 0)
+        // remove(0);
+        if (this.getSize() > 0)
+            this.remove(0);
     }
 
     /**
