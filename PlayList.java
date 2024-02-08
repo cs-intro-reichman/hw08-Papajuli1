@@ -211,11 +211,15 @@ class PlayList {
      */
     //// An elegant and terribly inefficient implementation.
     public void add(PlayList other) {
-        if (size + other.size <= maxSize) {
+        // if (size + other.size <= maxSize) {
+        // while (other.size != 0)
+        // add(other.tracks[0]);
+        // other.removeFirst();
+        // }
+        if (this.getSize() + other.getSize() <= this.getMaxSize()) {
             while (other.size != 0)
-                add(other.tracks[0]);
+                this.add(other.tracks[0]);
             other.removeFirst();
-            ;
         }
     }
 
@@ -227,11 +231,19 @@ class PlayList {
      * If start is negative or greater than size - 1, returns -1.
      */
     private int minIndex(int start) {
-        if (start < 0 || start > size - 1)
+        // if (start < 0 || start > size - 1)
+        // return -1;
+        // int index = start;
+        // for (int i = start; i < size; i++) {
+        // if (tracks[i].isShorterThan(tracks[index]))
+        // index = i;
+        // }
+        // return index;
+        if (start < 0 || start > this.getSize() - 1)
             return -1;
         int index = start;
-        for (int i = start; i < size; i++) {
-            if (tracks[i].isShorterThan(tracks[index]))
+        for (int i = start; i < this.getSize(); i++) {
+            if (this.tracks[i].isShorterThan(this.tracks[index]))
                 index = i;
         }
         return index;
@@ -242,7 +254,10 @@ class PlayList {
      * If the list is empty, returns null.
      */
     public String titleOfShortestTrack() {
-        if (size == 0)
+        // if (size == 0)
+        // return null;
+        // return tracks[minIndex(0)].getTitle();
+        if (this.getSize() == 0)
             return null;
         return tracks[minIndex(0)].getTitle();
     }
@@ -256,12 +271,20 @@ class PlayList {
     public void sortedInPlace() {
         // Uses the selection sort algorithm,
         // calling the minIndex method in each iteration.
-        for (int i = 0; i < size; i++) {
-            int min = minIndex(i);
+        // for (int i = 0; i < size; i++) {
+        // int min = minIndex(i);
+        // if (min != i) {
+        // Track temp = tracks[i];
+        // tracks[i] = tracks[min];
+        // tracks[min] = temp;
+        // }
+        // }
+        for (int i = 0; i < this.size; i++) {
+            int min = this.minIndex(i);
             if (min != i) {
                 Track temp = tracks[i];
-                tracks[i] = tracks[min];
-                tracks[min] = temp;
+                this.tracks[i] = this.tracks[min];
+                this.tracks[min] = temp;
             }
         }
 
