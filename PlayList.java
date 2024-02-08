@@ -165,6 +165,7 @@ class PlayList {
             while (other.size != 0)
                 this.add(other.tracks[0]);
             other.removeFirst();
+            ;
         }
     }
 
