@@ -28,7 +28,7 @@ class PlayList {
     public Track getTrack(int index) {
         if (index >= 0 && index < size) {
             return tracks[index];
-        } else {
+        } else { // redundant else
             return null;
         }
     }
@@ -39,6 +39,9 @@ class PlayList {
      * Otherwise, appends the track and returns true.
      */
     public boolean add(Track track) {
+        /* although it is not wrong to not open brackets, this usually leads to bugs
+           so it is good practice to always put brackets 
+        */
         if (this.size == this.maxSize)
             return false;
         this.tracks[size] = track;
@@ -54,7 +57,7 @@ class PlayList {
     public String toString() {
         String string = "";
         for (int i = 0; i < this.size; i++) {
-            string += "\n" + this.getTrack(i);
+            string += "\n" + this.getTrack(i); // not good! you should have used StringBuilder
         }
         return string;
     }
@@ -101,6 +104,9 @@ class PlayList {
      * returns true.
      */
     public boolean add(int i, Track track) {
+        /* We usually dont like to put the entire code function inside an if
+        we go on negation, if not the condition then return false, otherwise the code of the function. 
+        */
         if (i >= 0 && i <= this.size && this.size < this.maxSize) {
             if (i == this.size)
                 this.add(track);
@@ -123,6 +129,9 @@ class PlayList {
      * does nothing and returns -1.
      */
     public void remove(int i) {
+        /* We usually dont like to put the entire code function inside an if
+        we go on negation, if not the condition then return false, otherwise the code of the function. 
+        */
         if (this.getSize() != 0 && i >= 0 && i < this.getSize()) {
             if (i == this.size - 1)
                 this.removeLast();
@@ -165,6 +174,7 @@ class PlayList {
             while (other.size != 0)
                 this.add(other.tracks[0]);
             other.removeFirst();
+            // not good! you ruined the other list, you deleted all its songs
             ;
         }
     }
